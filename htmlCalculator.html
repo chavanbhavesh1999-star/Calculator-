@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Simple Notepad</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 20px;
+ background-color: #f4f4f9;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ height: 90vh;
+ }
+ h2 {
+ margin-top: 0;
+ color: #333;
+ }
+ textarea {
+ width: 100%;
+ max-width: 600px;
+ height: 70%;
+ padding: 15px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ box-sizing: border-box;
+ resize: none;
+ font-size: 16px;
+ outline: none;
+ }
+ button {
+ margin-top: 15px;
+ padding: 10px 20px;
+ background-color: #28a745;
+ color: white;
+ border: none;
+ border-radius: 5px;
+ font-size: 16px;
+ cursor: pointer;
+ }
+ button:hover {
+ background-color: #218838;
+ }
+ </style>
+\</head\> \<link rel="manifest"href="manifest.json"\>
+<body>
+ <h2>My Notes</h2>
+ <textarea id="notepad" placeholder="Type your notes here..."></textarea>
+ <button onclick="saveNote()">Save Note</button>
+<script>
+function saveNote() {
+    var noteText = document.getElementById('notepad').value;
+    localStorage.setItem('myNotepadData', noteText);
+    alert('Note saved successfully!');
+}
+</script>
+
+ // Load the saved note when the page opens
+ window.onload = function() {
+ const savedNote = localStorage.getItem('myNotepadData');
+ if (savedNote) {
+ document.getElementById('notepad').value = savedNote;
+ }
+ };
+ </script>
+</body>
+</html>
